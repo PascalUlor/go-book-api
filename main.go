@@ -7,9 +7,12 @@ import (
 	"log"
 	"net/http"
 
-	"./controllers"
-	"./driver"
-	"./models"
+	// "./controllers"
+	"example.com/me/controllers"
+	"example.com/me/driver"
+	// "./driver"
+	// "./models"
+	"example.com/me/models"
 
 	// "os"
 

@@ -7,9 +7,13 @@ import (
 	"net/http"
 	"strconv"
 
-	bookdbconfig "../config/book"
+	"example.com/me/bookdbconfig"
 
-	"../models"
+	// bookdbconfig "../config/book"
+
+	// "../models"
+	"example.com/me/models"
+
 	"github.com/gorilla/mux"
 )
 
