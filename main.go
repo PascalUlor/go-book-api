@@ -50,5 +50,5 @@ func main() {
 	go http.ListenAndServe(port, router)
 	log.Printf("Server started at port %v", port)
 	<-done
-	log.Fatal(http.ListenAndServe(":" + port, router))
+	log.Fatal(http.ListenAndServe(":"+port, router))
 }
