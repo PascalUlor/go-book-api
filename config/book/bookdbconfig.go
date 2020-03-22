@@ -35,7 +35,7 @@ func (c BookDbConfig) GetBooks(db *sql.DB, book models.Book, books []models.Book
 
 // GetBook ... Get a book
 func (c BookDbConfig) GetBook(db *sql.DB, book models.Book, id int) models.Book {
-	err := db.QueryRow("§select * from books where id = $1", id).Scan(&book.ID, &book.Title, &book.Author, &book.Year)
+	err := db.QueryRow("select * from books where id = $1", id).Scan(&book.ID, &book.Title, &book.Author, &book.Year)
 	logFatal(err)
 
 	return book
