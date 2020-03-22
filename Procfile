@@ -1,1 +1,1 @@
-web: ./api
+web: bin/go-book-api
