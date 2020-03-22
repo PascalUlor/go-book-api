@@ -13,6 +13,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// Controller app controller
 type Controller struct{}
 
 var books []models.Book
@@ -23,6 +24,7 @@ func logFatal(err error) {
 	}
 }
 
+// GetBooks ... Get all books
 func (c Controller) GetBooks(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var book models.Book
@@ -35,6 +37,8 @@ func (c Controller) GetBooks(db *sql.DB) http.HandlerFunc {
 		json.NewEncoder(w).Encode(books)
 	}
 }
+
+// GetBook ... Get all books
 func (c Controller) GetBook(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var book models.Book
@@ -52,12 +56,13 @@ func (c Controller) GetBook(db *sql.DB) http.HandlerFunc {
 	}
 }
 
+// AddBook ... Get all books
 func (c Controller) AddBook(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var book models.Book
 		var bookID int
 		json.NewDecoder(r.Body).Decode(&book)
-		
+
 		bookStore := bookdbconfig.BookDbConfig{}
 
 		bookID = bookStore.AddBook(db, book)
@@ -66,6 +71,7 @@ func (c Controller) AddBook(db *sql.DB) http.HandlerFunc {
 	}
 }
 
+// UpdateBook ... Get all books
 func (c Controller) UpdateBook(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var book models.Book
@@ -80,6 +86,7 @@ func (c Controller) UpdateBook(db *sql.DB) http.HandlerFunc {
 	}
 }
 
+// RemoveBook ... Get all books
 func (c Controller) RemoveBook(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
