@@ -14,7 +14,7 @@ import (
 	// "./models"
 	"example.com/me/models"
 
-	// "os"
+	"os"
 
 	"github.com/gorilla/mux"
 	// "github.com/lib/pq"
@@ -35,9 +35,10 @@ func logFatal(err error) {
 	}
 }
 func main() {
+	var port string
 	db = driver.ConnectDB()
 	controller := controllers.Controller{}
-	port := ":8080"
+	port = os.Getenv("PORT")
 	router := mux.NewRouter()
 	router.HandleFunc("/books", controller.GetBooks(db)).Methods("GET")
 	router.HandleFunc("/books/{id}", controller.GetBook(db)).Methods("GET")
