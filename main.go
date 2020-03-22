@@ -35,10 +35,14 @@ func logFatal(err error) {
 	}
 }
 func main() {
-	var port string
 	db = driver.ConnectDB()
 	controller := controllers.Controller{}
-	port = os.Getenv("PORT")
+	// port := os.Getenv("PORT")
+	port := os.Getenv("PORT")
+
+    if port == "" {
+        log.Fatal("$PORT must be set")
+    }
 	router := mux.NewRouter()
 	router.HandleFunc("/books", controller.GetBooks(db)).Methods("GET")
 	router.HandleFunc("/books/{id}", controller.GetBook(db)).Methods("GET")
@@ -50,5 +54,5 @@ func main() {
 	go http.ListenAndServe(port, router)
 	log.Printf("Server started at port %v", port)
 	<-done
-	log.Fatal(http.ListenAndServe(":"+port, router))
+	log.Fatal(http.ListenAndServe(":" + port, router))
 }
