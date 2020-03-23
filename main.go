@@ -51,7 +51,7 @@ func main() {
 	router.HandleFunc("/books/{id}", controller.RemoveBook(db)).Methods("DELETE")
 
 	done := make(chan bool)
-	go http.ListenAndServe(port, router)
+	go http.ListenAndServe(":" + port, router)
 	log.Printf("Server started at port %v", port)
 	<-done
 	log.Fatal(http.ListenAndServe(":" + port, router))
