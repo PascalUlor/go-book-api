@@ -30,6 +30,9 @@ func (c BookDbConfig) GetBooks(db *sql.DB, book models.Book, books []models.Book
 
 		books = append(books, book)
 	}
+	err = rows.Err()
+	logFatal(err)
+	
 	return books
 }
 

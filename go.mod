@@ -3,7 +3,7 @@ module github.com/PascalUlor/go-book-api
 go 1.13
 
 require (
-	example.com/me/bookdbconfig v0.0.0
+	example.com/me/bookdbconfig v0.0.0 // indirect
 	example.com/me/controllers v0.0.0
 	example.com/me/driver v0.0.0
 	example.com/me/models v0.0.0
@@ -20,6 +20,7 @@ require (
 	github.com/pelletier/go-toml v1.6.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sdboyer/constext v0.0.0-20170321163424-836a14457353 // indirect
+	github.com/stretchr/testify v1.5.1 // indirect
 	github.com/subosito/gotenv v1.2.0
 	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a // indirect
 	golang.org/x/sys v0.0.0-20200321134203-328b4cd54aae // indirect
