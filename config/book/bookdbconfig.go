@@ -25,7 +25,7 @@ func (c BookDbConfig) GetBooks(db *sql.DB, book models.Book, books []models.Book
 	defer rows.Close()
 
 	for rows.Next() {
-		err := rows.Scan(&book.ID, &book.Title, &book.Author, &book.Year)
+		err = rows.Scan(&book.ID, &book.Title, &book.Author, &book.Year)
 		logFatal(err)
 
 		books = append(books, book)
