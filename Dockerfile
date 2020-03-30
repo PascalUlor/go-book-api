@@ -34,5 +34,7 @@ COPY --from=builder /app/.env .
 # Expose port 8080 to the outside world
 EXPOSE 8080
 
+LABEL maintainer="Pascal Ulor <pascalulor@yahoo.com>"
+
 #Command to run the executable
 CMD ["./main"]
